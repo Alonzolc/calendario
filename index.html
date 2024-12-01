@@ -482,7 +482,7 @@
         for (let day = 1; day <= 31; day++) {
             const dayDiv = document.createElement('div');
             dayDiv.classList.add('day');
-            if (day > currentDay || currentMonth !== 10) {
+            if (day > currentDay || currentMonth !== 12) {
                 dayDiv.classList.add('locked');
             }
             if (day === 11) {
@@ -506,7 +506,7 @@
 
         // Función para mostrar una frase aleatoria si el día no ha llegado
         function showPhrase(day) {
-            if (day > currentDay || currentMonth !== 10) {
+            if (day > currentDay || currentMonth !== 12) {
                 // Escoger una frase aleatoria
                 const randomIndex = Math.floor(Math.random() * futurePhrases.length);
                 alert(futurePhrases[randomIndex]);
