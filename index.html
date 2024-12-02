@@ -221,7 +221,7 @@
         <source src="musica/musica.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <h1>❤️❤️Mes cumpleañero de la Esposa - Diciembre 2024 ❤️❤️</h1>
+    <h1>❤️❤️Mes cumpleañero de mi Esposa - Diciembre 2024 ❤️❤️</h1>
     <div class="calendar">
         <!-- Generar días dinámicamente con JavaScript -->
     </div>
@@ -290,7 +290,7 @@
     <div id="modal2" class="modal2">
         <div class="modal2-content">
             <p>Día 2 ❤️</p>
-            <img src="esposaloca.png" alt="Mensaje especial">
+            <img id="specialImage" src="musica/niñaloca.gif" alt="Mensaje especial">
             <p>Mi vida ya faltan 9 días para tu cumpleaños ❤️, estamos todos emocionados wuuu ❤️ y para eso dejamos una preguntaaaaa: </p>
             <div class="container">
                 <h2>¿Cuál es el día del aniversario de los esposos locos?</h2>
@@ -303,18 +303,23 @@
                 <div class="message" id="message"></div>
                 <button class="close" onclick="closeModal2()">Cerrar</button>
             </div>
-
+    
             <script>
                 // Función para comprobar la respuesta
                 function checkAnswer() {
                     const answerInput = document.getElementById('answerInput');
                     const message = document.getElementById('message');
+                    const specialImage = document.getElementById('specialImage');
                     
                     // Comprobar si la respuesta es correcta
                     if (answerInput.value === '23') {
                         message.textContent = '¡Muy bien amorcito ❤️! Nuestro aniversario es el 23 ❤️.';
                         message.classList.remove('error');
                         message.classList.add('success');
+                        
+                        // Cambiar la imagen
+                        specialImage.src = 'esposaloca.png'; // Reemplaza con la ruta de la imagen correcta
+                        specialImage.alt = 'Respuesta correcta';
                     } else {
                         message.textContent = 'No pues amor, mejor dime que no me amas :c .';
                         message.classList.remove('success');
@@ -325,7 +330,9 @@
                     answerInput.value = '';
                 }
             </script>
+        </div>
     </div>
+    
     <div id="modal3" class="modal3">
         <div class="modal3-content">
             <p id="initialText">Día 3 ❤️</p>
@@ -482,7 +489,7 @@
         for (let day = 1; day <= 31; day++) {
             const dayDiv = document.createElement('div');
             dayDiv.classList.add('day');
-            if (day > currentDay || currentMonth !== 10) {
+            if (day > currentDay || currentMonth !== 12) {
                 dayDiv.classList.add('locked');
             }
             if (day === 11) {
@@ -506,7 +513,7 @@
 
         // Función para mostrar una frase aleatoria si el día no ha llegado
         function showPhrase(day) {
-            if (day > currentDay || currentMonth !== 10) {
+            if (day > currentDay || currentMonth !== 12) {
                 // Escoger una frase aleatoria
                 const randomIndex = Math.floor(Math.random() * futurePhrases.length);
                 alert(futurePhrases[randomIndex]);
