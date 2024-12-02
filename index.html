@@ -211,6 +211,72 @@
             max-width: 100%;
             border-radius: 10px;
         }
+        .modal6 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal6-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+        .modal6 img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .modal7 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal7-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+        .modal7 img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .modal8 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal8-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+        .modal8 img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
     
 
 
@@ -478,6 +544,160 @@
             }
         });
     </script>
+    <div id="modal6" class="modal6">
+        <div class="modal6-content">
+            <p id="initialText5">Día 6 ❤️</p>
+            <img id="imageContent" src="musica/loco.png" alt="Imagen inicial" width="100%">
+            <p id="modalText">Mi vida ¿Sabías lo muuucho que te amo? ❤️</p>
+            <div id="buttonContainer" class="container">
+                <button id="yesButton" onclick="handleYes()">Sí</button>
+                <button id="noButton" onclick="handleNo()">No</button>
+                <br><br>
+                <button class="close" onclick="closeModal6()">Cerrar</button>
+                <br>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function handleYes() {
+            // Cambia la imagen y el texto al rechazar
+            const image = document.getElementById("imageContent");
+            const text = document.getElementById("modalText");
+            const buttonContainer = document.getElementById("buttonContainer");
+    
+            image.src = "musica/miami.jpeg"; // Cambia a la imagen para "No"
+            text.textContent = "Quiero decirte lo mucho que te amo, eres esa persona por la cual no me rendiré nunca en la vida, quiero que triunfemos siempre ❤️";
+            buttonContainer.innerHTML = `
+                <button class="close" onclick="closeModal6()">Cerrar</button>
+            `;
+        }
+    
+        function handleNo() {
+            // Cambia la imagen y el texto al rechazar
+            const image = document.getElementById("imageContent");
+            const text = document.getElementById("modalText");
+            const buttonContainer = document.getElementById("buttonContainer");
+    
+            image.src = "musica/canta.jpeg"; // Cambia a la imagen para "No"
+            text.textContent = "Y por si no lo sabías, quiero dejar en claro que en las buenas y sobretodo en las malas, siempre juntitos mi vida ❤️, te amo y siempre te amaré ❤️";
+            buttonContainer.innerHTML = `
+                <button class="close" onclick="closeModal6()">Cerrar</button>
+            `;
+        }
+    
+        function resetModal() {
+            // Resetea el modal al estado inicial
+            const image = document.getElementById("imageContent");
+            const text = document.getElementById("modalText");
+            const buttonContainer = document.getElementById("buttonContainer");
+    
+            image.src = "musica/loco.png"; // Vuelve a la imagen inicial
+            text.textContent = "¿Cree usteh que el esposo está loco? ❤️";
+            buttonContainer.innerHTML = `
+                <button id="yesButton" onclick="handleYes()">Sí</button>
+                <button id="noButton" onclick="handleNo()">No</button>
+                <button class="close" onclick="closeModal6()">Cerrar</button>
+            `;
+        }
+    
+        function closeModal6() {
+            const modal = document.getElementById("modal6");
+            modal.style.display = "none";
+        }
+    </script>
+    <div id="modal7" class="modal7">
+        <div class="modal7-content">
+            <p id="initialText7">Día 7 ❤️</p>
+            <img id="imageContent7" src="musica/alitas.jpeg" alt="Imagen inicial" width="100%">
+            <p id="modalText7">Si lees esto mi vida, haz ganado un vale VIP para irnos a comer alitas juntitos. ¿Decea usteh? ❤️</p>
+            <div id="buttonContainer7" class="container">
+                <button id="yesButton7" onclick="handleYes7()">Sí deceo</button>
+                <button id="noButton7" onclick="handleNo7()">No deceo</button>
+                <br><br>
+                <button class="close" onclick="closeModal7()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function handleYes7() {
+            const image = document.getElementById("imageContent7");
+            const text = document.getElementById("modalText7");
+            const buttonContainer = document.getElementById("buttonContainer7");
+    
+            // Cambiar contenido al hacer clic en "Sí"
+            image.src = "musica/niña.gif"; // Cambia a la imagen para "Sí"
+            text.textContent = "No se diga más, el esposo invita ❤️ siiii";
+            buttonContainer.innerHTML = '<button class="close" onclick="closeModal7()">Cerrar</button>';
+        }
+    
+        function handleNo7() {
+            const image = document.getElementById("imageContent7");
+            const text = document.getElementById("modalText7");
+            const buttonContainer = document.getElementById("buttonContainer7");
+    
+            // Cambiar contenido al hacer clic en "No"
+            image.src = "musica/iorando.png"; // Cambia a la imagen para "Sí"
+            text.textContent = "Mejor dime que ya no me amas 😢";
+            buttonContainer.innerHTML = '<button class="close" onclick="closeModal7()">Cerrar</button>';
+        }
+    
+        function closeModal7() {
+            const modal = document.getElementById("modal7");
+            modal.style.display = "none";
+        }
+    </script>
+    <div id="modal8" class="modal8">
+        <div class="modal8-content">
+            <p id="countdownText" class="countdown-style">¡Que comience la cuenta regresiva! Ya faltan 3 días ❤️</p>
+            <p id="initialText8">Día 8 ❤️</p>
+            <img id="imageContent8" src="musica/fuete.gif" alt="Imagen inicial" width="100%">
+            <p id="modalText8">Mi vida ya entramos en tú semana cumpleañera ❤️</p>
+            <div id="buttonContainer8" class="container">
+
+                <button class="close" onclick="closeModal8()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        /* Estilo para el texto de la cuenta regresiva */
+        .countdown-style {
+            font-size: 1rem; /* Tamaño grande */
+            color: #ff99cc; /* Tono rosado */
+            font-weight: bold; /* Resalta el texto */
+            text-align: center; /* Centra el texto */
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+    
+        /* Estilos adicionales para el modal (opcional) */
+        .modal8-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        .container button {
+            background-color: #ff99cc; /* Color rosado */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        .container button:hover {
+            background-color: #ff6699; /* Tono más oscuro al pasar el cursor */
+        }
+    </style>
+    
+    
+    
+    
 
     <script>
         const today = new Date();
@@ -514,7 +734,7 @@
         // Función para mostrar una frase aleatoria si el día no ha llegado
         function showPhrase(day) {
             if (day > currentDay || currentMonth !== 12) {
-                // Escoger una frase aleatoria
+                 //Escoger una frase aleatoria
                 const randomIndex = Math.floor(Math.random() * futurePhrases.length);
                 alert(futurePhrases[randomIndex]);
                 return;
@@ -538,6 +758,18 @@
             }
             if(day == 5 ){
                 openModal5();
+                return;
+            }
+            if(day == 6 ){
+                openModal6();
+                return;
+            }
+            if(day == 7 ){
+                openModal7();
+                return;
+            }
+            if(day == 8 ){
+                openModal8();
                 return;
             }
 
@@ -608,6 +840,24 @@
         }
         function closeModal5() {
             document.getElementById("modal5").style.display = "none";
+        }
+        function openModal6 (){
+            document.getElementById("modal6").style.display = "flex";
+        }
+        function closeModal6() {
+            document.getElementById("modal6").style.display = "none";
+        }
+        function openModal7 (){
+            document.getElementById("modal7").style.display = "flex";
+        }
+        function closeModal7() {
+            document.getElementById("modal7").style.display = "none";
+        }
+        function openModal8 (){
+            document.getElementById("modal8").style.display = "flex";
+        }
+        function closeModal8() {
+            document.getElementById("modal8").style.display = "none";
         }
 
 
