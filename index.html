@@ -277,6 +277,29 @@
             max-width: 100%;
             border-radius: 10px;
         }
+        .modal9 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal9-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+        .modal9 img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    
     
 
 
@@ -287,7 +310,7 @@
         <source src="musica/musica.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <h1>❤️❤️Mes cumpleañero de mi Esposa - Diciembre 2024 ❤️❤️</h1>
+    <h1>❤️❤️Mes cumpleañero de mi Esposa!! - Diciembre 2024 ❤️❤️</h1>
     <div class="calendar">
         <!-- Generar días dinámicamente con JavaScript -->
     </div>
@@ -606,57 +629,73 @@
             modal.style.display = "none";
         }
     </script>
+
     <div id="modal7" class="modal7">
         <div class="modal7-content">
-            <p id="initialText7">Día 7 ❤️</p>
-            <img id="imageContent7" src="musica/alitas.jpeg" alt="Imagen inicial" width="100%">
-            <p id="modalText7">Si lees esto mi vida, haz ganado un vale VIP para irnos a comer alitas juntitos. ¿Decea usteh? ❤️</p>
-            <div id="buttonContainer7" class="container">
-                <button id="yesButton7" onclick="handleYes7()">Sí deceo</button>
-                <button id="noButton7" onclick="handleNo7()">No deceo</button>
+            <p>Día 7 ❤️</p>
+            <img id="imageContent7" src="musica/chill.jpg" alt="Imagen inicial" width="100%">
+            <p>Te gustó tu sopresita amorcito?❤️, y para no perder la costumbre soy el chill de cojines ❤️   </p>
+            <div class="container">
+            <button class="close" onclick="closeModal7()">Cerrar</button>
+            </div>
+        </div>
+    </div> 
+
+
+
+
+
+    <div id="modal8" class="modal8">
+        <div class="modal8-content">
+            <p id="initialText8">Día 8 ❤️</p>
+            <img id="imageContent8" src="musica/alitas.jpeg" alt="Imagen inicial" width="100%">
+            <p id="modalText8">Si lees esto mi vida, haz ganado un vale VIP para irnos a comer alitas juntitos. ¿Decea usteh? ❤️</p>
+            <div id="buttonContainer8" class="container">
+                <button id="yesButton8" onclick="handleYes8()">Sí deceo</button>
+                <button id="noButton8" onclick="handleNo8()">No deceo</button>
                 <br><br>
-                <button class="close" onclick="closeModal7()">Cerrar</button>
+                <button class="close" onclick="closeModal8()">Cerrar</button>
             </div>
         </div>
     </div>
     
     <script>
-        function handleYes7() {
-            const image = document.getElementById("imageContent7");
-            const text = document.getElementById("modalText7");
-            const buttonContainer = document.getElementById("buttonContainer7");
+        function handleYes8() {
+            const image = document.getElementById("imageContent8");
+            const text = document.getElementById("modalText8");
+            const buttonContainer = document.getElementById("buttonContainer8");
     
             // Cambiar contenido al hacer clic en "Sí"
             image.src = "musica/niña.gif"; // Cambia a la imagen para "Sí"
             text.textContent = "No se diga más, el esposo invita ❤️ siiii";
-            buttonContainer.innerHTML = '<button class="close" onclick="closeModal7()">Cerrar</button>';
+            buttonContainer.innerHTML = '<button class="close" onclick="closeModal8()">Cerrar</button>';
         }
     
-        function handleNo7() {
-            const image = document.getElementById("imageContent7");
-            const text = document.getElementById("modalText7");
-            const buttonContainer = document.getElementById("buttonContainer7");
+        function handleNo8() {
+            const image = document.getElementById("imageContent8");
+            const text = document.getElementById("modalText8");
+            const buttonContainer = document.getElementById("buttonContainer8");
     
             // Cambiar contenido al hacer clic en "No"
             image.src = "musica/iorando.png"; // Cambia a la imagen para "Sí"
             text.textContent = "Mejor dime que ya no me amas 😢";
-            buttonContainer.innerHTML = '<button class="close" onclick="closeModal7()">Cerrar</button>';
+            buttonContainer.innerHTML = '<button class="close" onclick="closeModal8()">Cerrar</button>';
         }
     
         function closeModal7() {
-            const modal = document.getElementById("modal7");
+            const modal = document.getElementById("modal8");
             modal.style.display = "none";
         }
     </script>
-    <div id="modal8" class="modal8">
-        <div class="modal8-content">
-            <p id="countdownText" class="countdown-style">¡Que comience la cuenta regresiva! Ya faltan 3 días ❤️</p>
-            <p id="initialText8">Día 8 ❤️</p>
-            <img id="imageContent8" src="musica/fuete.gif" alt="Imagen inicial" width="100%">
-            <p id="modalText8">Mi vida ya entramos en tú semana cumpleañera ❤️</p>
-            <div id="buttonContainer8" class="container">
+    <div id="modal9" class="modal9">
+        <div class="modal9-content">
+            <p id="countdownText" class="countdown-style"> Ya faltan 2 días!!! ❤️</p>
+            <p id="initialText9">Día 9 ❤️</p>
+            <img id="imageContent9" src="musica/fuete.gif" alt="Imagen inicial" width="100%">
+            <p id="modalText9">Mi vida ya entramos en tú semana cumpleañera, esooo que comience la fiesta, mesaaa, mesaaa mesa que más aplaudaaaaaaa❤️</p>
+            <div id="buttonContainer9" class="container">
 
-                <button class="close" onclick="closeModal8()">Cerrar</button>
+                <button class="close" onclick="closeModal9()">Cerrar</button>
             </div>
         </div>
     </div>
@@ -672,7 +711,7 @@
         }
     
         /* Estilos adicionales para el modal (opcional) */
-        .modal8-content {
+        .modal9-content {
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
@@ -772,6 +811,10 @@
                 openModal8();
                 return;
             }
+            if(day == 9 ){
+                openModal9();
+                return;
+            }
 
             const phrases = [
                 "¡Que tengas un excelente día!",
@@ -858,6 +901,12 @@
         }
         function closeModal8() {
             document.getElementById("modal8").style.display = "none";
+        }
+        function openModal9 (){
+            document.getElementById("modal9").style.display = "flex";
+        }
+        function closeModal9() {
+            document.getElementById("modal9").style.display = "none";
         }
 
 
