@@ -299,6 +299,28 @@
             max-width: 100%;
             border-radius: 10px;
         }
+        .modal10 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal10-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+        .modal10 img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
     
     
 
@@ -701,6 +723,36 @@
             </div>
         </div>
     </div>
+    <div id="modal10" class="modal10">
+        <div class="modal10-content">
+            <p id="countdownText" class="countdown-style">Ya falta 1 día!!! ❤️</p>
+            <p id="initialText10">Día 10 ❤️</p>
+            <img id="imageContent10" src="musica/mira.jpeg" alt="Imagen inicial" width="100%">
+            <p id="belowImageText10" style="text-align: center; font-weight: bold;">¿Están listos para la locuraaa? ❤️</p>
+            <p id="modalText10">Yaaa a un día de tu cumpleaños mi vidaaaaa❤️, estan todos listos para la locuraaaa maximaaaaaa?</p>
+            <div id="buttonContainer10" class="container">
+                <button class="confirm" onclick="handleYes()">Sí</button>
+                <button class="close" onclick="closeModal10()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function handleYes() {
+            const image = document.getElementById("imageContent10");
+            const text = document.getElementById("modalText10");
+            const buttonContainer = document.getElementById("buttonContainer10");
+    
+            // Cambiar contenido al hacer clic en "Sí"
+            image.src = "musica/medi.jpeg"; // Cambia a la imagen para "Sí"
+            text.textContent = "Mi vida ❤️, estamos todos listos, se vienen cositas ❤️, espero que de momento te esten agradando estas cositas❤️, me basta con que te saque una sonrisa amorcito ❤️";
+            buttonContainer.innerHTML = '<button class="close" onclick="closeModal10()">Cerrar</button>';
+        }
+
+
+
+
+    </script>    
+
     
     <style>
         /* Estilo para el texto de la cuenta regresiva */
@@ -817,6 +869,10 @@
                 openModal9();
                 return;
             }
+            if(day == 10 ){
+                openModal10();
+                return;
+            }
 
             const phrases = [
                 "¡Que tengas un excelente día!",
@@ -909,6 +965,12 @@
         }
         function closeModal9() {
             document.getElementById("modal9").style.display = "none";
+        }
+        function openModal10 (){
+            document.getElementById("modal10").style.display = "flex";
+        }
+        function closeModal10() {
+            document.getElementById("modal10").style.display = "none";
         }
 
 
