@@ -321,6 +321,50 @@
             max-width: 100%;
             border-radius: 10px;
         }
+        .modal11 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal11-content {
+            background: rgb(245, 207, 230);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+        .modal11 img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .modal12 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal12-content {
+            background: rgb(245, 207, 230);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+        .modal12 img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
     
     
 
@@ -747,12 +791,278 @@
             text.textContent = "Mi vida ❤️, estamos todos listos, se vienen cositas ❤️, espero que de momento te esten agradando estas cositas❤️, me basta con que te saque una sonrisa amorcito ❤️";
             buttonContainer.innerHTML = '<button class="close" onclick="closeModal10()">Cerrar</button>';
         }
+    </script>  
+    
+    
+    <div id="confirmationModal" class="modal11" style="display: none;">
+        <div class="modal11-content">
+            <img id="imageContent10" src="musica/cerdito.jpg" alt="Imagen inicial" width="100%">
+            <p>Estás lista para ver el contenido del Día 11?</p>
+            <button onclick="showValidationModal()">Sí</button>
+            <button onclick="closeConfirmationModal()">No</button>
+        </div>
+    </div>
+    <div id="validationModal" class="modal11" style="display: none;">
+        <div class="modal11-content">
+            <img id="imageContent10" src="musica/perrito.jpg" alt="Imagen inicial" width="100%">
+            <p>Hola soi Francisco nuevamente, primero que nada quiero validar que de verdad eres tú y no un intruso, con una preguntaa</p>
+            <p class="question-text"><strong><span style="font-size: 24px;">¿Qué celebramos hoy?</span></strong></p>
+            <div class="alternatives-container">
+            <label><input type="radio" name="celebracion" id="option1"> Nabidah</label><br>
+            <label><input type="radio" name="celebracion" id="option2"> Batalla de Ayacucho</label><br>
+            <label><input type="radio" name="celebracion" id="option3"> Cumpleaños de mi esposa loca ❤️</label><br>
+            </div> 
+            <button onclick="checkAnswer()">Enviar Respuesta</button>
+            <button onclick="closeValidationModal()">Cerrar</button>
+            <p id="errorMessage" style="color: red; display: none;">¡Respuesta incorrecta! Inténtalo nuevamente.</p>
+        </div>
+    </div>
+
+
+    <style>
+        #confirmationModal, #validationModal {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .question-text {
+        font-weight: bold;
+        font-size: 24px;
+        text-align: center; /* Centra el texto de la pregunta */
+        margin-bottom: 20px; /* Espacio debajo de la pregunta */
+        }
+        .alternatives-container {
+        display: flex;
+        flex-direction: column; /* Alinea las alternativas en una columna */
+        justify-content: center; /* Centra las alternativas verticalmente */
+        align-items: center; /* Alinea las opciones a la izquierda */
+        margin: 20px 0; /* Espaciado superior e inferior para separar del texto */
+        }
+   
+
+
+    </style>
+    <script>// Función para mostrar el modal de confirmación
+        function showConfirmationModal() {
+            document.getElementById("confirmationModal").style.display = "flex"; // Muestra el modal de confirmación
+        }
+        
+        // Función para mostrar el modal de validación
+        function showValidationModal() {
+            document.getElementById("confirmationModal").style.display = "none"; // Cierra el modal de confirmación
+            document.getElementById("validationModal").style.display = "flex"; // Muestra el modal de validación
+        }
+        
+        // Función para cerrar el modal de confirmación
+        function closeConfirmationModal() {
+            document.getElementById("confirmationModal").style.display = "none";
+        }
+        
+        // Función para cerrar el modal de validación
+        function closeValidationModal() {
+            document.getElementById("validationModal").style.display = "none";
+        }
+        
+        // Función para verificar la respuesta seleccionada en el modal de validación
+        function checkAnswer() {
+            const selectedOption = document.querySelector('input[name="celebracion"]:checked'); // Obtiene la opción seleccionada
+
+            if (selectedOption) { // Si hay una opción seleccionada
+                // Verificar si la opción seleccionada es la correcta
+                if (selectedOption.id === "option3") { // Si la opción correcta (opción 3) es seleccionada
+                    document.getElementById("validationModal").style.display = "none"; // Cierra el modal de validación
+                    document.getElementById("modal11").style.display = "flex"; // Muestra el modal11
+                } else {
+                    // Si la respuesta es incorrecta, muestra un mensaje de error
+                    document.getElementById("errorMessage").style.display = "block";
+                }
+            } else {
+                 // Si no hay ninguna opción seleccionada, muestra un mensaje de error
+                document.getElementById("errorMessage").innerText = "Por favor, selecciona una opción.";
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+        
+        // Función para cerrar el modal del Día 11
+        function closeModal11() {
+            document.getElementById("modal11").style.display = "none";
+        }
+        </script>
 
 
 
+    <div id="modal11" class="modal11" style="display: none;">
+        <div class="modal11-content" style="
+            width: 90%; 
+            max-width: 600px; 
+            margin: auto; 
+            background-color: white; 
+            background-image: url('musica/chanchitos.jpg'); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            border-radius: 10px; 
+            padding: 20px; 
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+            overflow-y: auto; 
+            max-height: 90vh;">
+            <p id="countdownText" class="countdown-style bold-large-text" style="background-color: white; padding: 10px; border-radius: 5px; font-size:26px">❤️❤️Feliz Cumpleaños mi vidaaa ❤️❤️</p>
 
-    </script>    
+            <p id="initialText11" style="font-size: 25px;">Día 11 ❤️</p>
+            <img id="imageContent11" src="musica/mira.jpeg" alt="Imagen inicial" style="width: 100%; border-radius: 10px;">
+            <p id="belowImageText11" style="text-align: center; font-weight: bold; background-color: white; padding: 10px; border-radius: 5px;">Un día como hoy, nació mi esposa ❤️</p>
+            <p id="modalText11" style="background-color: white; padding: 10px; border-radius: 5px;">Mi vida feliz cumpleaños, independientemente de la hora que leas esto, sean a la media noche o al amanecer, el camino ha sido largo pero la espera ha terminado,
+                durante estos 11 días, he estado atrás de una pantalla programando por horas para que todo salga bien, con casi más de 1200 lineas de codigo, lo mejor es que disfruto el hacer esto, 
+                la finalidad de todo esto es desearte un feliz cumpleaños❤️, sacarte una sonrisa, y por supuesto ser muy diferente al resto, no será el útlimo porque aún no acaba, y con último quise decir 
+                que más adelante también hare cositas como estas ❤️
+            </p>
+            <img id="imageContent11" src="musica/code.jpg" alt="Imagen inicial" style="width: 100%; border-radius: 10px;">
+            <p id="modalText11" style="background-color: white; padding: 10px; border-radius: 5px;"> Sabes que siempre he tratado de llamar tu atención desde el primer día en que te conocí❤️,
+                tiempo después me enteré que podía hacer estas cositas, nunca en mi vida había hecho esto, y es que se siente taaaan bien ❤️❤️. Por otro lado decirte también, si estos días he estado
+                algo ocupado es porque atras de todo esto hay una secuencia de errores que saltaban para la creación de todo esto, si has notado que hacía caso o algo así te pido disculpas por eso mi vida 
+                solo soy un joven aprendiz de la programación.
+                Valoro mucho lo que haz logrado desde que te conocí❤️, eres la fundadora y pieza clave de GM Store, el pequeño negocio que hemos creado y que ha dado frutos, no me arrepiento de nada,
+                hay días en donde nos estresamos ambos, siempre habran desacuerdos también, es parte de, solo no hay que caer en la desesperación, como lo venimos manejando esta bien mi vida ❤️ y recuerda,
+                GM sin tí no funciona mi vida ❤️, y pareciese que fuera ayer cuando decidimos crear y dar el primer paso.... 
+            </p>
+            <img id="imageContent11" src="musica/gm.png" alt="Imagen inicial" style="width: 100%; border-radius: 10px;">
+            <p id="modalText11" style="background-color: white; padding: 10px; border-radius: 5px;"> Nunca dudes de tí, eres la mejor ❤️, desde el momento en que te ví en ripley y te vi a los ojos
+                vi en ti una mirada que me consumio por completo y me dijo: "Quiero ser la mejor y salir adelante", tan segura tu mi vida ❤️ , y lo estás logrando ❤️, no sabes lo orgulloso que me siento
+                de tí, tanto así que cuando te mencionan , siempre saco cara por ti y les doy mil y un  motivos para estar contigo todo el tiempo ❤️, estoy escribiendo todo esto el 10 de diciembre a las 19:01
+                mis ojitos se llenan de lagrimas de felicidad , recordé aquel momento en donde me levantaste y me dijiste que nada estaba perdido,como no amarte mi vida, despues de todo lo que hiciste y haces por mi.
+                me ayudas siempre en mis tareas, nunca me has dicho que no pese a que tu laptop no es muy buena, producto de ello el semestre pasado alcance el tercio superior, mira nada más todo lo que he 
+                alcanzado gracias a ti amor❤️, contigo basicamente soy el mejor del mundo, contigo todo es más facil, contigo siento que puedo con todo, siempre diré esto: "Que me falte cualquier cosa, menos tú mi vida",
+                estamos a nada también de cumplir 1 año juntitos ❤️, y tambien quiero aprovechar en decir lo feliz que soy a tu lado , si en algun momento te he hecho sentir mal, te pido disculpas por eso :C ❤️
+            </p>
+            <img id="imageContent11" src="musica/comida.png" alt="Imagen inicial" style="width: 80%; border-radius: 10px;">
+            <p id="modalText11" style="background-color: white; padding: 10px; border-radius: 5px;"> A veces las cosas no salen como queremos, pero estoy agradecido por cada momento a tu lado, porque incluso cuando las 
+                cosas no son perfectas, tú haces que todo valga la pena ❤️. Creo que las palabras quedan muy cortas a la hora de expresar muchas cositas que uno siente ❤️</p>
+            <img id="imageContent11" src="musica/chancay.png" alt="Imagen inicial" style="width: 80%; border-radius: 10px;">
+            <p id="modalText11" style="background-color: white; padding: 10px; border-radius: 5px;"> Quiero que hoy te olvides de todo los problemas y malos pensamientos porque eso no va en un
+                cumpleaños amorcito, se que los problemas familiares te atacan constantemente, solo te digo que más adelante no será así mi vida ❤️, mi intención ha sido y es siempre sacarte una 
+                sonrisa incluso en esos casos, porque no es justo que te pongas triste. QUIERO VERTE SIEMPRE FELIZ CON ESA SONRISA QUE SIEMPRE TIENES MI VIDA ❤️, Y YO ME ENCARGARÉ DE ESO ❤️
+            </p>
+            <img id="imageContent11" src="musica/localoca.jpeg" alt="Imagen inicial" style="width: 80%; border-radius: 10px;">
+            <p id="modalText11" style="background-color: white; padding: 10px; border-radius: 5px;"> Los días en donde estamos con tu mami y tu hermano son uno de los mejores, el día que fuimos a 
+                gamarra, si bien fue cansaado, fue un día en donde interactue más con tu hermano, es un mate de risa jajaja, hasta de la nada nosotros 3 haciendo carreritas JAJAJAJA, me he matado de la risa ese 
+                día amor ❤️, y tú mami también siempre presente ❤️, cuando vamos con ella a plaza norte, a mega, etc a pasear o a comprar, yo feliz mi vida, creeme que jamás te diré que no porque yo también la 
+                paso bien ❤️. Y de mi familia pues, todos te aman, como te habrás dado cuenta ❤️, para mi mamá y papá eres como una hija más, te aman y te aclaman siempre ❤️, ayer mientras regresaba a casa 
+                la señora pooolaaaaa, uhhhhhhhhhh ayudame amorrr uhhhhhhhhhhh Ausilioooo, jajaja amor , me dijo " y ese milagro solo", apenas regresaba a casa , me dio a entender que siempre me ve cuando estamos 
+                juntitos ❤️ 
+            </p>
+            <img id="imageContent11" src="musica/zoo.png" alt="Imagen inicial" style="width: 80%; border-radius: 10px;">
+            <p id="modalText11" style="background-color: white; padding: 10px; border-radius: 5px;"> Finalmente, quiero dejar en claro siempre y por siempre lo mucho que te amo ❤️, una vez más digo: "te dejaré de amar 
+                el día en que mi cuerpo ya no esté en este mundo", y ni aún así, me tendrás también desde el cielo o infierno ahí JAJAJAJAJAJ ❤️, YA  SABES AMOR, LA LOCURA NUNCA MUERE, SE TRANSFORMA JAJA ❤️
+                amor ayudame no se que pasa con mi cerebrooooo ayudameeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+            </p>
+            <img id="imageContent111" src="musica/ausilio.png" alt="Imagen inicial" style="width: 80%; border-radius: 10px;">
+            <br>
+            <button class="close" style="padding: 12px 24px; font-size: 16px; border-radius: 5px;"onclick="changeImage()">Click acá para envíar 3 besitos</button> <br>
+            <script>
+            function changeImage() {
+                const imageElement = document.getElementById('imageContent111');
+                imageElement.src = "musica/gracias.png"; // Cambia esta ruta a la nueva imagen que desees
+            }
+            function playAudio() {
+                 const audioPlayer = document.getElementById('audioPlayer');
+                 audioPlayer.play();
+    }
+            </script>
+            <audio id="audioPlayer" style="display: none;">
+                <source src="musica/japi.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio> 
+            <br>
+            
+            <p id="modalText11" style="background-color: white; padding: 10px; border-radius: 5px;"> Y recuerda mi vida ❤️, eres una guerrera ❤️, eres la mejor del mundo ❤️ , feliz cumpleaños amorcito 
+                de mi corazon ❤️, te amo con todo mi corazon de poio ❤️
+            </p>
+            <img id="imageContent11" src="musica/xd.png" alt="Imagen inicial" style="width: 80%; border-radius: 10px;">
+            <p id="modalText11" style="background-color: white; padding: 10px; border-radius: 5px;"> Y nooo , no me he olvidado de la musica de japi berdei Yijaaaaaa jajaja
+            </p>
+            <button style="padding: 12px 24px; font-size: 16px; border-radius: 5px; "onclick="playAudio()">Reproducir japi berdei</button>
+            <p id="modalText11" style="background-color: white; padding: 10px; border-radius: 5px;"> Y para no perder la costumbre jaja
+            </p>   
+            <button style="padding: 12px 24px; font-size: 16px; border-radius: 5px; "onclick="mostrar()">Click aquí</button>
+            <div id="gifContainer" style="display: none; margin-top: 20px;">
+                <img src="musica/ricardo.gif" alt="GIF animado" style="width: 200px; border-radius: 10px;">
+            </div>
+            <script>
+                function mostrar() {
+                    // Obtén el contenedor donde se mostrará el GIF
+                    const gifContainer = document.getElementById('gifContainer');
+                    
+                    // Cambia su estilo para que sea visible
+                    gifContainer.style.display = 'block';
+                }
+            </script>
+            <p id="modalText11" style="background-color: white; padding: 10px; border-radius: 5px;"> Espero haberte sacado una sonrisa mi vida ❤️, te amo mucho, feliz cumpleañación ❤️
+                que viva la esposa y que siga bebiendo ❤️ jajaja, toca disfrutar del paseito mi vida ❤️
+            </p>  
 
+            
+            <div id="buttonContainer11" class="container" style="display: flex; justify-content: space-around;">
+                <button class="close" style="padding: 12px 24px; font-size: 16px; border-radius: 5px;" onclick="closeModal11()">Cerrar por ahora ❤️</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function openModal11() {
+            const modal = document.getElementById('modal11');
+            if (modal) {
+                modal.style.display = 'block';
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.width = '100%';
+                modal.style.height = '100%';
+                modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                modal.style.zIndex = '1000';
+                modal.style.overflowY = 'auto'; /* Permite scroll en el modal completo */
+            }
+        }
+    
+        function closeModal11() {
+            const modal = document.getElementById('modal11');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+    
+        function showAlert() {
+            alert("Bueno, llegó la hora");
+        }
+    </script>
+    
+    <style>
+        .modal11-content {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+    
+    
+    
+    
     
     <style>
         /* Estilo para el texto de la cuenta regresiva */
@@ -787,8 +1097,19 @@
             background-color: #ff6699; /* Tono más oscuro al pasar el cursor */
         }
     </style>
-    
-    
+    <div id="modal12" class="modal12">
+        <div class="modal12-content">
+            <p id="countdownText" class="countdown-style"> Día 12 ❤️</p>
+            <p id="initialText12">Así es, el cumpleañación aún no termina ehh ❤️</p>
+            <img id="imageContent9" src="musica/12.png" alt="Imagen inicial" width="100%">
+            <p id="modalText9">Solo que el día de hoy te dejo esta fotito que sabes que me gusta mucho y esta en mi perfil de wasap ❤️</p>
+            <div id="buttonContainer9" class="container">
+
+                <button class="close" onclick="closeModal12()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+ 
     
     
 
@@ -873,6 +1194,17 @@
                 openModal10();
                 return;
             }
+            if(day == 11 ){
+                showConfirmationModal();
+                
+                showAlert();
+                return;
+            }
+            if(day == 12 ){
+                openModal12();
+                return;
+            }
+
 
             const phrases = [
                 "¡Que tengas un excelente día!",
@@ -971,6 +1303,18 @@
         }
         function closeModal10() {
             document.getElementById("modal10").style.display = "none";
+        }
+        function openModal11 (){
+            document.getElementById("modal11").style.display = "flex";
+        }
+        function closeModal11() {
+            document.getElementById("modal11").style.display = "none";
+        }
+        function openModal12 (){
+            document.getElementById("modal12").style.display = "flex";
+        }
+        function closeModal12() {
+            document.getElementById("modal12").style.display = "none";
         }
 
 
