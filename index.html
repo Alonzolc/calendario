@@ -387,6 +387,28 @@
             max-width: 100%;
             border-radius: 10px;
         }
+        .modal14 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal14-content {
+            background: rgb(245, 207, 230);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+        .modal14 img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
     
     
 
@@ -1143,7 +1165,18 @@
             </div>
         </div>
     </div>
- 
+    <div id="modal14" class="modal14">
+        <div class="modal13-content">
+            <p id="countdownText" class="countdown-style"> Día 14 ❤️</p>
+            <p id="initialText14">Una de las tantas fotos favoritas que tengo ❤️</p>
+            <img id="imageContent14" src="musica/56556.jpeg" alt="Imagen inicial" width="100%">
+            <p id="modalText14">Te amo mucho mi vida  ❤️</p>
+            <div id="buttonContainer14" class="container">
+
+                <button class="close" onclick="closeModal14()">Cerrar</button>
+            </div>
+        </div>
+    </div>
     
     
 
@@ -1160,7 +1193,7 @@
             if (day > currentDay || currentMonth !== 12) {
                 dayDiv.classList.add('locked');
             }
-            if (day === 11) {
+            if (day === 11 || day ===23) {
                 dayDiv.classList.add('red-day');  // Resaltar el día 11 en rojo
             }
             dayDiv.textContent = day;
@@ -1240,6 +1273,10 @@
             }
             if(day == 13 ){
                 openModal13();
+                return;
+            }
+            if(day == 14 ){
+                openModal14();
                 return;
             }
 
@@ -1359,6 +1396,12 @@
         }
         function closeModal13() {
             document.getElementById("modal13").style.display = "none";
+        }
+        function openModal14 (){
+            document.getElementById("modal14").style.display = "flex";
+        }
+        function closeModal14() {
+            document.getElementById("modal14").style.display = "none";
         }
 
 
