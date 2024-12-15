@@ -431,6 +431,28 @@
             max-width: 100%;
             border-radius: 10px;
         }
+        .modal16 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal16-content {
+            background: rgb(245, 207, 230);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+        .modal16 img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
     
     
 
@@ -442,7 +464,7 @@
         <source src="musica/musica.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <h1>❤️❤️Mes cumpleañero de mi Esposa!❤️ - Diciembre 2024 ❤️❤️</h1>
+    <h1>❤️❤️❤️Mes cumpleañero de mi Esposa!❤️❤️❤️ - Diciembre 2024 ❤️❤️❤️</h1>
     <div class="calendar">
         <!-- Generar días dinámicamente con JavaScript -->
     </div>
@@ -1211,6 +1233,78 @@
             </div>
         </div>
     </div>
+    <div id="modal16" class="modal16">
+        <div class="modal16-content">
+            <p id="countdownText" class="countdown-style">Día 16 ❤️</p>
+            <p id="initialText16">Amorcito, no creas que ya se pasó la semana cumpleañera, estamos a nada de llegar al 23 ❤️</p>
+            <img id="imageContent16" src="gato.png" alt="Imagen inicial" width="100%">
+            <p id="modalText16">¿Qué se celebra el 23? ❤️</p>
+    
+            <div id="quizContainer16" class="quiz-container">
+                <form id="quizForm16">
+                    <label>
+                        <input type="checkbox" name="quizOption" value="1" onclick="handleCheckboxClick(this)">
+                        Un día normal común y corriente 
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="quizOption" value="2" onclick="handleCheckboxClick(this)">
+                        Aniversario de los esposos locos ❤️
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="quizOption" value="3" onclick="handleCheckboxClick(this)">
+                        Nabidah ❤️
+                    </label><br>
+                    <button type="button" onclick="checkAnswer()">Enviar</button>
+                </form>
+            </div>
+    
+            <p id="feedback16" class="feedback-text" style="color: red; font-weight: bold; display: none;"></p>
+            <p id="successMessage16" class="success-text" style="color: green; font-weight: bold; display: none;">Siii , el año de los esposos locos ❤️❤️, esooo❤️ 🎉</p>
+            <div id="buttonContainer15" class="container">
+                <button class="close" onclick="closeModal16()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function handleCheckboxClick(checkbox) {
+            const checkboxes = document.querySelectorAll('input[name="quizOption"]');
+            checkboxes.forEach(cb => {
+                if (cb !== checkbox) cb.checked = false;
+            });
+        }
+    
+        function checkAnswer() {
+            const selectedOption = document.querySelector('input[name="quizOption"]:checked');
+            const feedback = document.getElementById("feedback16");
+            const successMessage = document.getElementById("successMessage16");
+            const image = document.getElementById("imageContent16");
+    
+            if (!selectedOption) {
+                feedback.textContent = "Por favor, selecciona una opción.";
+                feedback.style.display = "block";
+                return;
+            }
+    
+            if (selectedOption.value === "2") {
+                // Respuesta correcta
+                image.src = "musica/niña.gif"; // Cambia a la imagen correcta
+                
+                feedback.style.display = "none";
+                feedback.textContent = "El año de los esposos locos ❤️❤️, esooo❤️"
+                successMessage.style.display = "block";
+            } else {
+                // Respuesta incorrecta
+                feedback.textContent = "Respuesta incorrecta. Inténtalo de nuevo.";
+                feedback.style.display = "block";
+            }
+        }
+    
+        function closeModal16() {
+            const modal = document.getElementById("modal16");
+            modal.style.display = "none";
+        }
+    </script>
     
     
 
@@ -1315,6 +1409,10 @@
             }
             if(day == 15 ){
                 openModal15();
+                return;
+            }
+            if(day == 16 ){
+                openModal16();
                 return;
             }
 
@@ -1446,6 +1544,12 @@
         }
         function closeModal15() {
             document.getElementById("modal15").style.display = "none";
+        }
+        function openModal16 (){
+            document.getElementById("modal16").style.display = "flex";
+        }
+        function closeModal16() {
+            document.getElementById("modal16").style.display = "none";
         }
 
 
