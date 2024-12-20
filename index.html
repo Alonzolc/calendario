@@ -497,6 +497,28 @@
             max-width: 100%;
             border-radius: 10px;
         }
+        .modal20 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal20-content {
+            background: rgb(245, 207, 230);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+        }
+        .modal20 img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
     
     
 
@@ -1374,6 +1396,176 @@
             </div>
         </div>
     </div>
+    <div id="modal20" class="modal20">
+        <div class="modal20-content">
+            <p id="countdownText" class="countdown-style"> Día 20 ❤️</p>
+            <p id="initialText20">Cada vez falta poco para nuestro aniversario ❤️ </p>
+            <p id="modalText20">Si me ganas en este juego, me ganas amor, me desespero  ❤️</p>
+            <div id="gameContainer">
+                <h3>Michi</h3>
+                <div id="board" class="board"></div>
+                <button id="restartButton">Empezar de nuevo</button>
+            </div>
+            <div id="buttonContainer20" class="container">
+                <button class="close" onclick="closeModal20()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+        }
+    
+        .cell {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #000;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    
+        .cell.taken {
+            cursor: not-allowed;
+        }
+    
+        #victoryImage {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        #victoryImage img {
+            max-width: 100%;
+        }
+    </style>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const board = document.getElementById("board");
+            const restartButton = document.getElementById("restartButton");
+            const gameContainer = document.getElementById("gameContainer");
+            const cells = [];
+            let currentPlayer = "X";
+    
+            function showVictoryImage() {
+                // Creamos un contenedor para la imagen de victoria
+                const victoryContainer = document.createElement("div");
+                victoryContainer.id = "victoryImage";
+                victoryContainer.innerHTML = `
+                    <p>¡Felicidades, ganaste!</p>
+                    <img src="gato.png" alt="Victoria" />
+                `;
+                gameContainer.appendChild(victoryContainer);
+                // Opcional: ocultar el tablero
+                board.style.display = 'none';
+                restartButton.style.display = 'none';
+            }
+    
+            function checkWinner() {
+                const winningCombinations = [
+                    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                    [0, 4, 8], [2, 4, 6]             // Diagonals
+                ];
+    
+                for (const combination of winningCombinations) {
+                    const [a, b, c] = combination;
+                    if (
+                        cells[a].textContent &&
+                        cells[a].textContent === cells[b].textContent &&
+                        cells[a].textContent === cells[c].textContent
+                    ) {
+                        return cells[a].textContent;
+                    }
+                }
+    
+                return cells.every(cell => cell.textContent) ? "Draw" : null;
+            }
+    
+            function easyAIMove() {
+                const emptyCells = cells.filter(cell => !cell.textContent);
+                if (emptyCells.length > 0) {
+                    const randomCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+                    randomCell.textContent = "O";
+                    randomCell.classList.add("taken");
+                }
+            }
+    
+            function handleCellClick(event) {
+                const cell = event.target;
+                if (cell.textContent || currentPlayer !== "X") return;
+                cell.textContent = "X";
+                cell.classList.add("taken");
+    
+                const winner = checkWinner();
+                if (winner) {
+                    if (winner === "X") {
+                        alert("¡Felicidades amorcito , ganaste!");
+                        showVictoryImage();
+                    } else {
+                        setTimeout(() => alert(winner === "Draw" ? "El esposo gano, pero solo por hoy diremos que es un empate!" : `Ganador: ${winner}`), 100);
+                    }
+                } else {
+                    currentPlayer = "O";
+                    setTimeout(() => {
+                        easyAIMove();
+                        const winner = checkWinner();
+                        if (winner) {
+                            if (winner === "X") {
+                                alert("¡Felicidades amorcito , ganaste!");
+                                showVictoryImage();
+                            } else {
+                                setTimeout(() => alert(winner === "Draw" ? "El esposo gano, pero solo por hoy diremos que es un empate!" : `Ganador: ${winner}`), 100);
+                            }
+                        } else {
+                            currentPlayer = "X";
+                        }
+                    }, 500);
+                }
+            }
+    
+            function resetGame() {
+                gameContainer.innerHTML = '<h3></h3><div id="board" class="board"></div><button id="restartButton">Empezar de nuevo</button>';
+                const newBoard = document.getElementById("board");
+                const newRestartButton = document.getElementById("restartButton");
+    
+                cells.splice(0, cells.length);
+                for (let i = 0; i < 9; i++) {
+                    const cell = document.createElement("div");
+                    cell.classList.add("cell");
+                    cell.addEventListener("click", handleCellClick);
+                    newBoard.appendChild(cell);
+                    cells.push(cell);
+                }
+    
+                newRestartButton.addEventListener("click", resetGame);
+                currentPlayer = "X";
+            }
+    
+            restartButton.addEventListener("click", resetGame);
+    
+            // Create the board
+            for (let i = 0; i < 9; i++) {
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                cell.addEventListener("click", handleCellClick);
+                board.appendChild(cell);
+                cells.push(cell);
+            }
+        });
+    </script>
+    
+    
+    
+    
+    
     
     
 
@@ -1494,6 +1686,10 @@
             }
             if(day == 19 ){
                 openModal19();
+                return;
+            }
+            if(day == 20 ){
+                openModal20();
                 return;
             }
             
@@ -1644,6 +1840,12 @@
         }
         function closeModal19() {
             document.getElementById("modal19").style.display = "none";
+        }
+        function openModal20 (){
+            document.getElementById("modal20").style.display = "flex";
+        }
+        function closeModal20() {
+            document.getElementById("modal20").style.display = "none";
         }
         
 
